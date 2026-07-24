@@ -363,6 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1419999020}
   - component: {fileID: 1419999021}
+  - component: {fileID: 1419999022}
   m_Layer: 0
   m_Name: MainSceneCore
   m_TagString: Untagged
@@ -401,6 +402,24 @@ MonoBehaviour:
   sceneServices: []
   initializeOnAwake: 1
   lastSelectedElement: {fileID: 0}
+--- !u!114 &1419999022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419999019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45099d624c1e6c14e9514f4e5ea1ed9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutSender
+  _spoutName: BND Interactive
+  _keepAlpha: 1
+  _captureMethod: 2
+  _sourceCamera: {fileID: 0}
+  _sourceTexture: {fileID: 8400000, guid: 27ae4bb2836d3d64eb504c69c9bb2302, type: 2}
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!1001 &1925177022
 PrefabInstance:
   m_ObjectHideFlags: 0
