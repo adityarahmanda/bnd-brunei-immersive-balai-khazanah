@@ -1,0 +1,11 @@
+{
+  "name": "com.lzy.text-logger",
+  "version": "1.0.2",
+  "author": {
+    "name": "LZY Visual Research",
+    "email": "lzyvisual.research@gmail.com"
+  },
+  "documentationUrl": "https://github.com/LZY-Visual/unity-lzy-packages",
+  "displayName": "LZY Text Logger",
+  "description": "Text logging system for recording and managing log messages in Unity"
+}

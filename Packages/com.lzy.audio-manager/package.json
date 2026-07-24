@@ -1,0 +1,17 @@
+{
+  "name": "com.lzy.audio-manager",
+  "version": "1.0.5",
+  "author": {
+    "name": "LZY Visual Research",
+    "email": "lzyvisual.research@gmail.com"
+  },
+  "documentationUrl": "https://github.com/LZY-Visual/unity-lzy-packages",
+  "displayName": "LZY Simple Audio Manager",
+  "description": "Audio management system for handling audio playback and control in Unity",
+  "samples": [
+    {
+      "displayName": "Simple Action Sequence - Audio Manager Module",
+      "path": "Modules/Simple Action Sequence Module"
+    }
+  ]
+}

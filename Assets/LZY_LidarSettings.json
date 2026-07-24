@@ -1,0 +1,48 @@
+[
+  {
+    "Version": "2.0.0",
+    "MaxTouchCount": 25,
+    "ConnectionType": 0,
+    "CustomIPAddress": "10.10.10.101",
+    "CustomPortNumber": 2368,
+    "DeviceType": 0,
+    "DeviceAnchor": 1,
+    "DeviceOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "magnitude": 0.0,
+      "sqrMagnitude": 0.0
+    },
+    "RotationDegrees": 0.0,
+    "Resolution": {
+      "x": 1920,
+      "y": 1080,
+      "magnitude": 2202.90723,
+      "sqrMagnitude": 4852800
+    },
+    "Margin": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 0.0,
+      "magnitude": 0.0,
+      "sqrMagnitude": 0.0
+    },
+    "ScreenSize": {
+      "x": 1920,
+      "y": 1080,
+      "magnitude": 2202.90723,
+      "sqrMagnitude": 4852800
+    },
+    "CancelBriefTime": 0.0,
+    "DistanceThresholdForMerge": 0.65,
+    "ObjectPositionSmoothTime": 0.0,
+    "DeltaLimit": 65,
+    "NoiseLimit": 2,
+    "SmoothDistanceCurve": false,
+    "SmoothKernelSize": 10,
+    "SmoothDistanceByTime": false,
+    "TimeSmoothBreakingDistanceChange": 200,
+    "TimeSmoothFactor": 0.01
+  }
+]

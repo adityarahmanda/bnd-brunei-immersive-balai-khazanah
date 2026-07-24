@@ -1,0 +1,12 @@
+{
+  "name": "com.lzy.core",
+  "version": "1.0.3",
+  "author": {
+    "name": "LZY Visual Research",
+    "email": "lzyvisual.research@gmail.com"
+  },
+  "documentationUrl": "https://github.com/LZY-Visual/unity-lzy-packages",
+  "displayName": "LZY Core",
+  "description": "Core system for game development, features includes dependencies injection and ui management",
+  "_fingerprint": "f7ceee565a7b99579a69569871c0be6d922ff025"
+}

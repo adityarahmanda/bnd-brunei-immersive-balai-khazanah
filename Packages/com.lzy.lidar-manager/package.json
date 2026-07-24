@@ -1,0 +1,18 @@
+{
+  "name": "com.lzy.lidar-manager",
+  "version": "2.0.0",
+  "author": {
+    "name": "LZY Visual Research",
+    "email": "lzyvisual.research@gmail.com"
+  },
+  "documentationUrl": "https://github.com/LZY-Visual/unity-lzy-packages",
+  "displayName": "LZY Lidar Manager",
+  "description": "Lidar sensor integration for interactive walls using Hokuyo and PAVO sensors.",
+  "_fingerprint": "9e44417c5f2a2d69f9ac1ea7a0ad2184d0aa721a",
+  "samples": [
+    {
+      "displayName": "Sample",
+      "path": "Samples"
+    }
+  ]
+}
