@@ -28,7 +28,7 @@ namespace LZY.Lidar
             }
         }
 
-        public static List<LidarDeviceController> Devices => _instance?.devices;
+        public static List<LidarDeviceController> Devices => Instance?.devices;
 
         private static LidarDeviceManager _instance;
 
@@ -51,7 +51,9 @@ namespace LZY.Lidar
                 DontDestroyOnLoad(gameObject);    
             }
             
+#if !UNITY_EDITOR
             LoadSettings();
+#endif
             foreach (var device in devices)
                 device.Initialize();
         }

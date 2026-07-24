@@ -1,0 +1,8 @@
+{
+  "name": "com.lzy.flipbook",
+  "version": "1.0.3",
+  "author": { "name": "LZY Visual Research", "email": "lzyvisual.research@gmail.com" },
+  "documentationUrl": "https://github.com/LZY-Visual/unity-lzy-packages",
+  "displayName": "LZY Flipbook",
+  "description": "Flipbook animation system for creating and managing frame-by-frame animations in Unity"
+}

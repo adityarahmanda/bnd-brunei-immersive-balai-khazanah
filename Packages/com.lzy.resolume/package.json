@@ -1,0 +1,11 @@
+{
+  "name": "com.lzy.resolume",
+  "version": "1.0.1",
+  "author": { "name": "LZY Visual Research", "email": "lzyvisual.research@gmail.com" },
+  "documentationUrl": "https://github.com/LZY-Visual/unity-lzy-packages",
+  "displayName": "LZY Resolume",
+  "description": "Resolume integration system for managing and controlling Resolume in Unity",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.2"
+  }
+}
