@@ -12,34 +12,22 @@ namespace LZY.BND
     {
         [SerializeField] private SpriteRendererFlipbookAnimator animator;
 
-        private CancellationTokenSource _cts;
-        
         private void OnEnable()
         {
             animator.SpriteRenderer.sprite = null;
-            _cts = new CancellationTokenSource();
-            _ = PlayAnimAsync(_cts.Token);
+            var random = Random.Range(0, animator.animations.Length);
+            animator.Play(random);
         }
 
         private void OnDisable()
         {
-            if (_cts != null)
-            {
-                _cts.Cancel();
-                _cts.Dispose();
-                _cts = null;
-            }
             animator.SpriteRenderer.sprite = null;
         }
 
-        private async Task PlayAnimAsync(CancellationToken cancellationToken = default)
+        private void Update()
         {
-            var random = Random.Range(0, animator.animations.Length);
-            var duration = animator.animations[random].Duration;
-            animator.Play(random);
-            await Task.Delay(TimeSpan.FromSeconds(duration), cancellationToken);
-            animator.Stop();
-            LeanPool.Despawn(gameObject);
+            if (!animator.isPlaying) 
+                LeanPool.Despawn(gameObject);
         }
 
         public void SetFlippedX(bool value)
