@@ -14,8 +14,8 @@ namespace LZY.BND
             osc.inPort = MainSceneCore.settings.oscInPort;
             osc.outPort = MainSceneCore.settings.oscOutPort;
             osc.Open();
-            osc.SetAddressHandler(MainSceneCore.settings.entranceClip.GetVideoPath(), OnEntranceClip);
-            osc.SetAddressHandler(MainSceneCore.settings.interactiveClip.GetVideoPath(), OnInteractiveClip);
+            osc.SetAddressHandler(MainSceneCore.settings.entranceClip.GetVideoPath() + "/connected", OnEntranceClip);
+            osc.SetAddressHandler(MainSceneCore.settings.interactiveClip.GetVideoPath() + "/connected", OnInteractiveClip);
         }
 
         private void OnEntranceClip(OscMessage oscm)

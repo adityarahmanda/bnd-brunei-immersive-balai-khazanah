@@ -565,7 +565,7 @@ MonoBehaviour:
         layer: 1
         column: 2
   lastSelectedElement: {fileID: 0}
-  loadSettingsOnEditor: 0
+  loadSettingsOnEditor: 1
   mainCamera: {fileID: 1965212924}
   mainCameraRT: {fileID: 8400000, guid: 27ae4bb2836d3d64eb504c69c9bb2302, type: 2}
   renderOnCamera: 0
