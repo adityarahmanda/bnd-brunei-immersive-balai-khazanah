@@ -18,6 +18,14 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "com.lzy.json-persistence": {
+      "version": "file:com.lzy.json-persistence",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.2"
+      }
+    },
     "com.lzy.lidar-manager": {
       "version": "file:com.lzy.lidar-manager",
       "depth": 0,

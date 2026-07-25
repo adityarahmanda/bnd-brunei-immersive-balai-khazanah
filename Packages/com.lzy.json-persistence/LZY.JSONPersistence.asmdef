@@ -1,0 +1,14 @@
+{
+    "name": "LZY.JSONPersistence",
+    "rootNamespace": "LZY.JSONPersistence",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

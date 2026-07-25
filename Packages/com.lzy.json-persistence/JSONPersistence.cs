@@ -3,10 +3,10 @@ using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace LZY.BND
+namespace LZY
 {
     [Serializable]
-    public abstract class JSONSaveLoad<T>
+    public abstract class JSONPersistence<T>
     {
         protected virtual string relativeSettingsPath
         {
@@ -22,10 +22,7 @@ namespace LZY.BND
         public T GetSettings()
         {
             if (_settings == null)
-            {
                 _settings = GetDefaultSettings();
-            }
-            
             return _settings;
         }
         
@@ -38,6 +35,8 @@ namespace LZY.BND
 #else
             var folderPath = Path.GetFullPath(Path.Combine(Application.dataPath, "../"));
 #endif
+            if (!Directory.Exists(folderPath))
+                Directory.CreateDirectory(folderPath);
             return Path.Combine(folderPath, relativeSettingsPath);
         }
         

@@ -1,0 +1,14 @@
+{
+  "name": "com.lzy.json-persistence",
+  "version": "1.0.0",
+  "author": {
+    "name": "LZY Visual Research",
+    "email": "lzyvisual.research@gmail.com"
+  },
+  "documentationUrl": "https://github.com/LZY-Visual/unity-lzy-packages",
+  "displayName": "LZY JSON Persistence",
+  "description": "A lightweight JSON-based persistence system for saving and loading application data.",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.2"
+  }
+}

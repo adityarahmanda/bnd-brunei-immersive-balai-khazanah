@@ -1,6 +1,4 @@
-#if UNITY_EDITOR
 using Sirenix.OdinInspector;
-#endif
 using System;
 using LZY.Resolume;
 using UnityEngine;
@@ -11,10 +9,10 @@ namespace LZY.BND
     public class MainSceneCore : SceneCore
     {
         private static MainSceneCore instance;
-        public static AppSettings settings { get { return instance?.appSaveLoad.GetSettings(); } }
+        public static AppSettings settings { get { return instance?.appPersistence.GetSettings(); } }
 
-        [Header("App Settings")]
-        [SerializeField] private AppSaveLoad appSaveLoad;
+        [Header("App Persistence")]
+        [SerializeField, HideLabel] private AppPersistence appPersistence;
         
         [Header("UI Navigation Runtime")]
         [SerializeField] private GameObject lastSelectedElement;
@@ -42,9 +40,9 @@ namespace LZY.BND
             
 #if UNITY_EDITOR
             if (loadSettingsOnEditor)
-                appSaveLoad.Load();
+                appPersistence.Load();
 #else
-            appSaveLoad.Load();
+            appPersistence.Load();
 #endif
         }
 
@@ -119,7 +117,7 @@ namespace LZY.BND
     }
 
     [Serializable]
-    public class AppSaveLoad : JSONSaveLoad<AppSettings>
+    public class AppPersistence : JSONPersistence<AppSettings>
     {
         public override AppSettings GetDefaultSettings()
         {
