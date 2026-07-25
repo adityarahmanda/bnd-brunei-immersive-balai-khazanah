@@ -549,12 +549,12 @@ MonoBehaviour:
   sceneCoreUI: {fileID: 1235037185}
   sceneServices: []
   initializeOnAwake: 1
-  appSaveLoad:
+  appPersistence:
     _settings:
       spawnDelay: 2
       spawnDistance: 80
-      spawnMinScale: 0.4
-      spawnMaxScale: 0.65
+      spawnMinScale: 0.75
+      spawnMaxScale: 1.05
       spawnSfxDelay: 0.5
       oscInPort: 7001
       oscOutPort: 7000
