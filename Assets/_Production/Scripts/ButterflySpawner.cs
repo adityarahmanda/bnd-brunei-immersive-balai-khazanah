@@ -12,17 +12,12 @@ namespace LZY.BND
     {
         protected override string GetId() => nameof(ButterflySpawner);
         
-        [SerializeField] private float spawnDelay = 2f;
-        [SerializeField] private float spawnDistance = 50f;
-        [SerializeField] private float spawnMinScale = 1f;
-        [SerializeField] private float spawnMaxScale = 1f;
         [SerializeField] private Camera spawnCamera;
         [SerializeField] private Transform spawnParent;
         [SerializeField] private ButterflyParticle particlePrefab;
 
         [Header("SFX Settings")]
         [SerializeField] private string spawnSfxKey = "SFX_Spawn";
-        [SerializeField] private float spawnSfxDelay = 0.5f;
 
         private Dictionary<int, SpawnedParticleData> _spawnedParticleDict = new Dictionary<int, SpawnedParticleData>();
         private float _spawnSfxTimer;
@@ -70,7 +65,7 @@ namespace LZY.BND
             {
                 var lifetime = Time.time - spawnedFlowerData.LastSpawnedTime;
                 var deltaMovement = screenPosition - spawnedFlowerData.LastSpawnedPos;
-                if (lifetime >= spawnDelay || deltaMovement.magnitude > spawnDistance)
+                if (lifetime >= MainSceneCore.settings.spawnDelay || deltaMovement.magnitude > MainSceneCore.settings.spawnDistance)
                     SpawnParticle(fingerId, screenPosition);
             }
             else
@@ -92,7 +87,7 @@ namespace LZY.BND
             var particle = LeanPool.Spawn(particlePrefab, spawnParent);
             particle.transform.position = worldPos;
             particle.transform.rotation = Quaternion.identity;
-            particle.transform.localScale = Vector3.one * Random.Range(spawnMinScale, spawnMaxScale);
+            particle.transform.localScale = Vector3.one * Random.Range(MainSceneCore.settings.spawnMinScale, MainSceneCore.settings.spawnMaxScale);
             particle.SetFlippedX(Random.value > 0.5f);
             
             if (_spawnedParticleDict.TryGetValue(fingerId, out var spawnedFlowerData))
@@ -117,7 +112,7 @@ namespace LZY.BND
             if (_spawnSfxTimer <= 0)
             {
                 AudioManager.PlaySFX(spawnSfxKey);
-                _spawnSfxTimer = spawnSfxDelay;
+                _spawnSfxTimer = MainSceneCore.settings.spawnSfxDelay;
             }
         }
     }
