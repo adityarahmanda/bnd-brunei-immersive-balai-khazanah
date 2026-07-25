@@ -83,6 +83,7 @@ namespace LZY.Lidar
 
                 Debug.Log("[Hokuyo] Connected to Hokuyo TCP Server with IP Address: " + ip + " and Port number: " + port.ToString());
                 m_tcpClientThread = new Thread(new ParameterizedThreadStart(HandleClientComm));
+                m_tcpClientThread.IsBackground = true;
                 m_tcpClientThread.Start(m_tcpClient);
 
                 // start measure distance
@@ -151,16 +152,9 @@ namespace LZY.Lidar
                 }
             }
 
-            if (m_tcpClientThread != null)
+            if (m_tcpClientThread != null && m_tcpClientThread != Thread.CurrentThread)
             {
-                try
-                {
-                    m_tcpClientThread.Abort();
-                }
-                catch
-                {
-                    // ignored
-                }
+                m_tcpClientThread.Join(1000);
             }
 
             m_isDisconnecting = false;
