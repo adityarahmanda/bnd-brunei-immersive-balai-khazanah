@@ -209,7 +209,7 @@ namespace LZY.Lidar
             catch (Exception ex)
             {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Debug.LogError("[Hokuyo] " + ex.Message));
-                Disconnect();
+                if (isConnected) Disconnect();
             }
         }
 
