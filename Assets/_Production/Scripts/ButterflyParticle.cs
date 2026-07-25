@@ -16,6 +16,7 @@ namespace LZY.BND
         
         private void OnEnable()
         {
+            animator.SpriteRenderer.sprite = null;
             _cts = new CancellationTokenSource();
             _ = PlayAnimAsync(_cts.Token);
         }
@@ -28,6 +29,7 @@ namespace LZY.BND
                 _cts.Dispose();
                 _cts = null;
             }
+            animator.SpriteRenderer.sprite = null;
         }
 
         private async Task PlayAnimAsync(CancellationToken cancellationToken = default)
