@@ -27,7 +27,6 @@ namespace LZY.BND
         private void OnEntranceClip(OscMessage oscm)
         {
             var isConnected = GetIsConnectedStatus(oscm);
-            _isEntranceConnected = isConnected;
             if (isConnected != _isEntranceConnected)
             {
                 _isEntranceConnected = isConnected;
