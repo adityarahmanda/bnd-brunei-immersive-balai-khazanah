@@ -99,6 +99,7 @@ namespace LZY.BND
         public float spawnMinScale = 0.4f;
         public float spawnMaxScale = 0.65f;
         public float spawnSfxDelay = 0.5f;
+        public float sfxVolume = 1f;
         
         public int oscInPort = 7001;
         public int oscOutPort = 7000;

@@ -17,7 +17,7 @@ namespace LZY.BND
         [SerializeField] private ButterflyParticle particlePrefab;
 
         [Header("SFX Settings")]
-        [SerializeField] private string spawnSfxKey = "SFX_Spawn";
+        [SerializeField] private AudioClip spawnSfx;
 
         private Dictionary<int, SpawnedParticleData> _spawnedParticleDict = new Dictionary<int, SpawnedParticleData>();
         private float _spawnSfxTimer;
@@ -111,7 +111,7 @@ namespace LZY.BND
         {
             if (_spawnSfxTimer <= 0)
             {
-                AudioManager.PlaySFX(spawnSfxKey);
+                AudioManager.PlaySFX(spawnSfx, MainSceneCore.settings.sfxVolume, Random.Range(.95f, 1.05f));
                 _spawnSfxTimer = MainSceneCore.settings.spawnSfxDelay;
             }
         }

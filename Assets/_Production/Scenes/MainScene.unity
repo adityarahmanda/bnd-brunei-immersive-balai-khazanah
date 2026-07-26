@@ -377,7 +377,7 @@ MonoBehaviour:
   spawnCamera: {fileID: 1965212924}
   spawnParent: {fileID: 1557632180}
   particlePrefab: {fileID: 9437874868466198, guid: 91a418f9b3a606f48b794408f3d8d171, type: 3}
-  spawnSfxKey: SFX_Spawn
+  spawnSfx: {fileID: 8300000, guid: 90765087654fb8243ac27acd6f225a71, type: 3}
 --- !u!1 &1235037180
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,7 +555,8 @@ MonoBehaviour:
       spawnDistance: 80
       spawnMinScale: 0.75
       spawnMaxScale: 1.05
-      spawnSfxDelay: 0.5
+      spawnSfxDelay: 2
+      sfxVolume: 1
       oscInPort: 7001
       oscOutPort: 7000
       entranceClip:
@@ -565,7 +566,7 @@ MonoBehaviour:
         layer: 1
         column: 2
   lastSelectedElement: {fileID: 0}
-  loadSettingsOnEditor: 1
+  loadSettingsOnEditor: 0
   mainCamera: {fileID: 1965212924}
   mainCameraRT: {fileID: 8400000, guid: 27ae4bb2836d3d64eb504c69c9bb2302, type: 2}
   renderOnCamera: 0
