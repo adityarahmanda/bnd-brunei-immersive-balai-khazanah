@@ -258,6 +258,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   osc: {fileID: 348283298}
+  onInteractiveConnected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &348283298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,12 +554,12 @@ MonoBehaviour:
   initializeOnAwake: 1
   appPersistence:
     _settings:
-      spawnDelay: 2
+      spawnDelay: 1
       spawnDistance: 80
       spawnMinScale: 0.75
       spawnMaxScale: 1.05
       spawnSfxDelay: 2
-      sfxVolume: 1
+      sfxVolume: 0.1
       oscInPort: 7001
       oscOutPort: 7000
       entranceClip:
@@ -565,6 +568,7 @@ MonoBehaviour:
       interactiveClip:
         layer: 1
         column: 2
+  isDebugging: 0
   lastSelectedElement: {fileID: 0}
   loadSettingsOnEditor: 0
   mainCamera: {fileID: 1965212924}

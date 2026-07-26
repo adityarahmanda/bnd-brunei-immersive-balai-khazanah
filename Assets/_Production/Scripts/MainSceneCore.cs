@@ -8,12 +8,16 @@ namespace LZY.BND
 {
     public class MainSceneCore : SceneCore
     {
-        private static MainSceneCore instance;
-        public static AppSettings settings { get { return instance?.appPersistence.GetSettings(); } }
+        public static MainSceneCore instance { get { return _instance; } }
+        
+        private static MainSceneCore _instance;
+
+        public static AppSettings settings { get { return _instance?.appPersistence.GetSettings(); } }
 
         [Header("App Persistence")]
         [SerializeField, HideLabel] private AppPersistence appPersistence;
-        
+        public bool isDebugging = false;
+  
         [Header("UI Navigation Runtime")]
         [SerializeField] private GameObject lastSelectedElement;
         
@@ -27,9 +31,9 @@ namespace LZY.BND
 
         protected override void OnPreInitialize()
         {
-            if (instance == null)
+            if (_instance == null)
             {
-                instance = this;
+                _instance = this;
             }
             else
             {
@@ -69,9 +73,15 @@ namespace LZY.BND
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 if (_callibrationView.IsVisible)
+                {
                     _callibrationView.SilentHide();
+                    isDebugging = false;
+                }
                 else
+                {
                     _callibrationView.SilentShow();
+                    isDebugging = true;
+                }
             }
         }
         

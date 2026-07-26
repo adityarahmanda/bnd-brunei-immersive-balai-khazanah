@@ -1,5 +1,6 @@
 using LZY.Resolume;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace LZY.BND
 {
@@ -8,6 +9,11 @@ namespace LZY.BND
         protected override string GetId() => nameof(ResolumeService);
 
         [SerializeField] private OSC osc;
+
+        private bool _isEntranceConnected;
+        private bool _isInteractiveConnected;
+        
+        public UnityEvent<bool> onInteractiveConnected;
 
         protected override void OnActivate()
         {
@@ -21,15 +27,25 @@ namespace LZY.BND
         private void OnEntranceClip(OscMessage oscm)
         {
             var isConnected = GetIsConnectedStatus(oscm);
-            if (isConnected)
-                ConnectClipColumn(MainSceneCore.settings.entranceClip.column);
+            _isEntranceConnected = isConnected;
+            if (isConnected != _isEntranceConnected)
+            {
+                _isEntranceConnected = isConnected;
+                if (_isEntranceConnected)
+                    ConnectClipColumn(MainSceneCore.settings.entranceClip.column);
+            }
         }
 
         private void OnInteractiveClip(OscMessage oscm)
         {
             var isConnected = GetIsConnectedStatus(oscm);
-            if (isConnected)
-                ConnectClipColumn(MainSceneCore.settings.interactiveClip.column);
+            if (isConnected != _isInteractiveConnected)
+            {
+                _isInteractiveConnected = isConnected;
+                if (_isInteractiveConnected)
+                    ConnectClipColumn(MainSceneCore.settings.interactiveClip.column);
+                onInteractiveConnected?.Invoke(isConnected);
+            }
         }
 
         private static bool GetIsConnectedStatus(OscMessage oscm)

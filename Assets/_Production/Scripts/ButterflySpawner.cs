@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Lean.Pool;
 using LZY.Lidar;
 using LZY.SimpleAudioManager;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,13 +20,32 @@ namespace LZY.BND
         [Header("SFX Settings")]
         [SerializeField] private AudioClip spawnSfx;
 
+        [Header("Editor Only")]
+        [ShowInInspector, ReadOnly] private bool _isSpawning;
+        
+        private ResolumeService _resolumeService;
         private Dictionary<int, SpawnedParticleData> _spawnedParticleDict = new Dictionary<int, SpawnedParticleData>();
         private float _spawnSfxTimer;
 
         private const int MouseFingerId = -1;
-        
+
+        protected override void OnActivate()
+        {
+            _resolumeService = SceneCore.GetService<ResolumeService>();
+            _resolumeService.onInteractiveConnected.AddListener(OnInteractiveConnected);
+            SetIsSpawning(false);
+        }
+
+        private void OnInteractiveConnected(bool isConnected)
+        {
+            SetIsSpawning(isConnected);
+        }
+
         protected override void OnUpdate()
         {
+            if (MainSceneCore.instance.isDebugging) return;
+            if (!_isSpawning) return;
+            
             UpdateTouch();
             UpdateSpawnSfx();
         }
@@ -80,6 +100,21 @@ namespace LZY.BND
                 _spawnSfxTimer -= Time.deltaTime;
         }
 
+        private void SetIsSpawning(bool value)
+        {
+            _isSpawning = value;
+            if (_isSpawning)
+            {
+                AudioListener.volume = 1f;
+                _spawnSfxTimer = 0;
+            }
+            else
+            {
+                AudioListener.volume = 0f;
+                LeanPool.DespawnAll();
+            }
+        }
+
         private void SpawnParticle(int fingerId, Vector2 screenPosition)
         {
             var finalScreenPos = new Vector3(screenPosition.x, screenPosition.y, spawnCamera.nearClipPlane);
@@ -115,6 +150,14 @@ namespace LZY.BND
                 _spawnSfxTimer = MainSceneCore.settings.spawnSfxDelay;
             }
         }
+        
+#if UNITY_EDITOR
+        [Button]
+        private void ToggleIsSpawning()
+        {
+            SetIsSpawning(!_isSpawning);
+        }
+#endif
     }
 
     [Serializable]
